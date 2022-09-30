@@ -1,27 +1,36 @@
 {% extends 'base.html' %}
-{% block title %} Edit {{ user.full_name }} {% endblock %}
+{% block title %} Edit Post {% endblock %}
 {% block content %}
 
 <h1>Edit Post</h1>
 
 <form method="POST" action="/posts/{{ post.id }}/edit">
-    <div>
-        <label for="title">Title</label>
-        <div>
-            <input id="title" name="title" value="{{ post.title }}">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="title">Title</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="title" name="title" value="{{ post.title }}">
         </div>
     </div>
 
-    <div>
-        <label for="content">Content</label>
-        <div>
-            <textarea id="content" name="content">{{ post.content }}</textarea>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="content">Content</label>
+        <div class="col-sm-10" >
+            <textarea class="form-control" id="content" name="content">{{ post.content }}</textarea>
         </div>
     </div>
 
-    <div>
+    <div class="form-chec mt-4">
+        {% for tag in tags %}
+        <div>
+            <input class="form-check-input" type="checkbox" name="tags" value="{{ tag.id }}" id="tag_{{ tag.id }}" {% if tag in post.tags%} checked {% endif %}>
+            <label class="form-check-label" for="tag_{{ tag.id }}">{{ tag.name }}</label>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="form-group mt-4">
         <a href="/users/{{ post.user_id }}" class="btn btn-outline-info">Cancel</a>
-        <button type="submit" class="btn btn-success">Edit</button>
+        <button type="submit" class="btn btn-success">Save</button>
     </div>
 </form>
 

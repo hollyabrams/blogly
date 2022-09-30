@@ -2,28 +2,29 @@
 {% block title %}{{ user.full_name }}{% endblock %}
 {% block content %}
 
-<div>
+<div class="row">
     {% if user.image_url %}
-    <div>
-        <img src="{{ user.image_url }}" alt="user.full_name">
+    <div class="col-sm-2 col-6">
+        <img src="{{ user.image_url }}" alt="user.full_name" class="img-fluid">
     </div>
     {% endif %}
 
-    <div>
+    <div class="col-sm-10 col-12">
         <h1>{{ user.full_name }}</h1>
+
         <form>
-            <button formaction="/users/{{ user.id }}/edit" formmethod="GET">Edit</button>
-            <button formaction="/users/{{ user.id }}/delete" formmethod="POST">Delete</button>
+            <button formaction="/users/{{ user.id }}/edit" formmethod="GET" class="btn btn-primary">Edit</button>
+            <button formaction="/users/{{ user.id }}/delete" formmethod="POST" class="btn btn-danger">Delete</button>
         </form>
 
-        <h2>Posts</h2>
+        <h2 class="mt-4">Posts</h2>
         <ul>
             {% for post in user.posts %}
             <li><a href="/posts/{{ post.id }}">{{ post.title }}</a><small>{{ post.friendly_date }}</small></li>
             {% endfor %}
         </ul>
 
-        <p><a href="/users/{{ user.id }}/posts/new" class="btn btn-info">Add Post</a></p>
+        <p><a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a></p>
     </div>
 </div>
 

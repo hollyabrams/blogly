@@ -5,31 +5,30 @@
 <h1>Edit User</h1>
 
 <form method="POST">
-    <div>
-        <label for="first_name">First Name</label>
-        <div>
-            <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
+    <div class="form-group">
+        <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
         </div>
     </div>
 
-    <div>
-        <label for="last_name">Last Name</label>
-        <div>
-            <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
+    <div class="form-group mt-2">
+        <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
         </div>
     </div>
 
-    <div>
-        <label for="image_url">Image URL</label>
-        <div>
-            <input type="text" id="image_url" name="image_url" value="{{ user.image_url }}">
+    <div class="form-group mt-2">
+        <label for="image_url" class="col-sm-2 col-form-label">Image URL</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="image_url" name="image_url" value="{{ user.image_url }}">
         </div>
     </div>
 
-    <div>
-        <a href="/users">Cancel</a>
-        <button type="submit">Save</button>
+    <div class="form-group mt-4">
+            <a href="/users" class="btn btn-outline-info float-right">Cancel</a>
+            <button type="submit" class="btn btn-success float-right">Save</button>
     </div>
-</form>
 
 {% endblock %}

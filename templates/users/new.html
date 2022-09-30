@@ -2,32 +2,32 @@
 {% block title %}Add User{% endblock %}
 {% block content %}
 
-<h1>Add User</h1>
+<h1>Create User</h1>
 
 <form method="POST">
-    <div>
-        <label for="first_name">First Name</label>
+    <div class="form-group">
+        <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
         <div>
-            <input type="text" id="first_name" name="first_name" placeholder="Enter First Name">
+            <input class="form-control" type="text" id="first_name" name="first_name" placeholder="Enter First Name">
         </div>
     </div>
 
-    <div>
-        <label for="last_name">Last Name</label>
+    <div class="form-group mt-2">
+        <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
         <div>
-            <input type="text" id="last_name" name="last_name" placeholder="Enter Last Name">
+            <input class="form-control" type="text" id="last_name" name="last_name" placeholder="Enter Last Name">
         </div>
     </div>
 
-    <div>
-        <label for="image_url">Image URL</label>
+    <div class="form-group mt-2">
+        <label for="image_url" class="col-sm-2 col-form-label">Image URL</label>
         <div>
-            <input type="text" id="image_url" name="image_url" placeholder="Enter Image URL">
+            <input class="form-control" type="text" id="image_url" name="image_url" placeholder="Enter Image URL">
         </div>
     </div>
 
-    <div>
-        <button type="submit" class="btn btn-info">Add user</button>
+    <div class="form-group mt-4">
+        <button type="submit" class="btn btn-success">Add User</button>
     </div>
 </form>
 
