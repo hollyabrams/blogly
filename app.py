@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = 'topsecret'
-# app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 debug = DebugToolbarExtension(app)
 
@@ -211,7 +211,7 @@ def edit_tags(tag_id):
     post_ids = [int(num) for num in request.form.getlist('posts')]
     tag.posts = Post.query.filter(Post.id.in_(post_ids)).all()
     db.session.add(tag)
-    db.session.committ()
+    db.session.commit()
     flash(f'Tag "{ tag.name }" edited.')
     return redirect('/tags')
 
